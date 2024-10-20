@@ -3,185 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fluxograma de Acompanhamento de Qualidade</title>
+    <title>Fluxograma de Instalação</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #1c1c2e, #273469);
-            margin: 0;
-            padding: 20px;
-            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #f0f0f0;
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            color: #00bfff;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 500;
+            font-size: 28px;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            color: #66ccff;
-            font-size: 3.5em;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .flow-chart {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 50px;
+            flex-wrap: nowrap;
+            padding: 20px;
         }
 
         .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: #1e1e1e;
+            padding: 30px 20px;
+            margin: 0 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
-            padding: 20px;
-            background-color: #2b365e;
-            border-radius: 15px;
-            width: 70%;
-            position: relative;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 180px;
+            transition: transform 0.3s ease;
         }
 
-        .step h2 {
-            color: #66ccff;
-            font-size: 1.8em;
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .step strong {
+            display: block;
+            color: #00bfff;
+            font-size: 18px;
             margin-bottom: 10px;
         }
 
-        .step p {
-            font-size: 1.1em;
-            color: #d1e7ff;
-            line-height: 1.6em;
-        }
-
-        .step ul {
-            text-align: left;
-            margin-top: 10px;
-        }
-
-        .step ul li {
-            margin-bottom: 5px;
-        }
-
         .arrow {
-            width: 60px;
-            height: 60px;
-            position: relative;
+            width: 0; 
+            height: 0; 
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 25px solid #00bfff;
         }
 
-        .arrow::before {
-            content: '';
-            width: 60px;
-            height: 60px;
-            border: solid 5px transparent;
-            border-top: none;
-            border-left: none;
-            border-bottom-color: #66ccff;
-            border-right-color: #66ccff;
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%) rotate(45deg);
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00bfff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
         }
 
-        @media (max-width: 768px) {
-            .step {
-                width: 90%;
-            }
+        button:hover {
+            background-color: #0099cc;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Fluxograma de Acompanhamento de Qualidade</h1>
-        <div class="flow-chart">
-            <!-- Etapa 1: Fechamento de Contrato -->
-            <div class="step">
-                <h2>1. Fechamento de Contrato</h2>
-                <p><strong>Descrição:</strong> Formalização da parceria entre o cliente e a empresa. Definição de expectativas, prazos e KPIs claros para medir o sucesso do projeto.</p>
-                <p><strong>Responsável de Qualidade:</strong></p>
-                <ul>
-                    <li>Revisão do contrato para clareza e alinhamento.</li>
-                    <li>Auxílio na definição de KPIs mensuráveis.</li>
-                    <li>Identificação de riscos e possíveis gargalos.</li>
-                </ul>
-            </div>
 
-            <div class="arrow"></div>
+<img src="logo_h_branco.jpeg" alt="Logo do Sistema" class="logo">
+<h2 class="title">Fluxograma de Instalação</h2>
 
-            <!-- Etapa 2: Instalação -->
-            <div class="step">
-                <h2>2. Instalação</h2>
-                <p><strong>Descrição:</strong> Configuração do sistema, testes de performance e verificação de todas as integrações necessárias com sistemas do cliente.</p>
-                <p><strong>Responsável de Qualidade:</strong></p>
-                <ul>
-                    <li>Realiza testes de desempenho e validação.</li>
-                    <li>Monitora as integrações e assegura funcionamento correto.</li>
-                    <li>Verifica a segurança e compliance de dados.</li>
-                </ul>
-            </div>
-
-            <div class="arrow"></div>
-
-            <!-- Etapa 3: Treinamento -->
-            <div class="step">
-                <h2>3. Treinamento</h2>
-                <p><strong>Descrição:</strong> Capacitação dos usuários para uso correto do sistema. Coleta de feedback para aprimorar futuras sessões.</p>
-                <p><strong>Responsável de Qualidade:</strong></p>
-                <ul>
-                    <li>Desenvolve materiais de treinamento adequados.</li>
-                    <li>Coleta feedback dos participantes para ajustes.</li>
-                    <li>Organiza treinamentos contínuos com atualizações.</li>
-                </ul>
-            </div>
-
-            <div class="arrow"></div>
-
-            <!-- Etapa 4: Educação Contínua -->
-            <div class="step">
-                <h2>4. Educação Contínua</h2>
-                <p><strong>Descrição:</strong> Workshops periódicos e suporte contínuo via portal de autoatendimento para novas funcionalidades.</p>
-                <p><strong>Responsável de Qualidade:</strong></p>
-                <ul>
-                    <li>Organiza workshops para melhorias e novidades.</li>
-                    <li>Atualiza materiais conforme surgem novas funções.</li>
-                    <li>Monitora performance e sugere ajustes.</li>
-                </ul>
-            </div>
-
-            <div class="arrow"></div>
-
-            <!-- Etapa 5: Acompanhamento Contínuo -->
-            <div class="step">
-                <h2>5. Acompanhamento Contínuo</h2>
-                <p><strong>Descrição:</strong> Monitoramento regular do uso do sistema, revisões de KPIs e check-ins para otimizações.</p>
-                <p><strong>Responsável de Qualidade:</strong></p>
-                <ul>
-                    <li>Revisa KPIs e garante entrega de valor.</li>
-                    <li>Faz check-ins regulares com o cliente.</li>
-                    <li>Identifica e sugere novas oportunidades de melhoria.</li>
-                </ul>
-            </div>
-
-            <div class="arrow"></div>
-
-            <!-- Etapa 6: Melhorias -->
-            <div class="step">
-                <h2>6. Melhorias</h2>
-                <p><strong>Descrição:</strong> Coleta de feedback do cliente e análise de dados para implementar novos recursos e ajustes.</p>
-                <p><strong>Responsável de Qualidade:</strong></p>
-                <ul>
-                    <li>Realiza análise de dados de uso para identificar melhorias.</li>
-                    <li>Coordena implementação de ajustes solicitados.</li>
-                    <li>Organiza treinamentos adicionais para novos recursos.</li>
-                </ul>
-            </div>
-        </div>
+<div class="container" id="content">
+    <div class="step">
+        <strong>Passo 1</strong>
+        Baixe o instalador do site oficial.
     </div>
+
+    <div class="arrow"></div>
+
+    <div class="step">
+        <strong>Passo 2</strong>
+        Execute o arquivo de instalação.
+    </div>
+
+    <div class="arrow"></div>
+
+    <div class="step">
+        <strong>Passo 3</strong>
+        Siga as instruções do assistente de instalação.
+    </div>
+
+    <div class="arrow"></div>
+
+    <div class="step">
+        <strong>Passo 4</strong>
+        Aceite os termos e condições.
+    </div>
+
+    <div class="arrow"></div>
+
+    <div class="step">
+        <strong>Passo 5</strong>
+        Escolha o diretório de instalação.
+    </div>
+
+    <div class="arrow"></div>
+
+    <div class="step">
+        <strong>Passo 6</strong>
+        Conclua a instalação e reinicie o programa.
+    </div>
+</div>
+
+<!-- Botão para baixar o PDF -->
+<button onclick="downloadPDF()">Baixar em PDF</button>
+
+<script>
+    async function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+
+        try {
+            const doc = new jsPDF('landscape');
+            const content = document.getElementById("content");
+
+            // Adiciona fundo preto
+            doc.setFillColor(18, 18, 18);
+            doc.rect(0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height, 'F');
+
+            // Carregar a imagem do logo
+            const logo = new Image();
+            logo.src = 'logo_h_branco.jpeg';  // Mudança para .jpeg
+            logo.onload = async function () {
+                // Captura o conteúdo usando html2canvas
+                const canvas = await html2canvas(content, {
+                    backgroundColor: null // Mantém o fundo transparente
+                });
+
+                if (!canvas) {
+                    throw new Error("Erro ao capturar o conteúdo.");
+                }
+
+                const imgData = canvas.toDataURL('image/png');
+                const imgWidth = 200; // Ajuste conforme necessário
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                // Adiciona o conteúdo do canvas
+                doc.addImage(imgData, 'PNG', 10, 60, imgWidth, imgHeight);
+                doc.addImage(logo.src, 'JPEG', 10, 10, 150, 40); // Logo na parte superior
+                doc.text("Fluxograma de Instalação", 105, 50, { align: "center" });
+
+                // Salvar o PDF
+                doc.save("fluxograma_instalacao.pdf");
+            };
+
+            logo.onerror = function () {
+                alert("Erro ao carregar a imagem do logo. Verifique o arquivo.");
+            };
+        } catch (error) {
+            console.error(error);
+            alert("Ocorreu um erro ao tentar baixar o PDF. Verifique o console para mais detalhes.");
+        }
+    }
+</script>
+
 </body>
 </html>
