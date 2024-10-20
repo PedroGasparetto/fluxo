@@ -21,7 +21,7 @@
         }
 
         .logo {
-            width: 150px;
+            width: 150px; /* Ajuste conforme necessário */
             margin-bottom: 20px;
         }
 
@@ -152,7 +152,7 @@
 
             // Carregar a imagem do logo
             const logo = new Image();
-            logo.src = 'logo_h_branco.jpeg';  // Mudança para .jpeg
+            logo.src = 'logo_h_branco.jpeg'; // Mudança para .jpeg
             logo.onload = async function () {
                 // Captura o conteúdo usando html2canvas
                 const canvas = await html2canvas(content, {
@@ -164,12 +164,15 @@
                 }
 
                 const imgData = canvas.toDataURL('image/png');
-                const imgWidth = 200; // Ajuste conforme necessário
+                const imgWidth = doc.internal.pageSize.width - 20; // Largura do conteúdo
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
                 // Adiciona o conteúdo do canvas
                 doc.addImage(imgData, 'PNG', 10, 60, imgWidth, imgHeight);
                 doc.addImage(logo.src, 'JPEG', 10, 10, 150, 40); // Logo na parte superior
+                
+                // Adiciona o título com a cor correta
+                doc.setTextColor(0, 191, 255); // Código RGB para #00bfff
                 doc.text("Fluxograma de Instalação", 105, 50, { align: "center" });
 
                 // Salvar o PDF
