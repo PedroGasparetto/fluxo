@@ -6,6 +6,7 @@
     <title>Fluxograma de Instalação</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -146,7 +147,7 @@
 </head>
 <body>
 
-<div class="logo-container">
+<div class="logo-container" id="content ">
     <img src="logo_h_branco.jpeg" alt="Logo do Sistema" class="logo">
     <img src="audit.png" alt="Logo Download" class="logo">
     <img src="auditacard.png" alt="Logo Auditacard" class="logo">
@@ -482,14 +483,27 @@
 </div>
 
 <!-- Botão para baixar o PDF -->
-<button onclick="downloadPDF()">Baixar em PDF</button>
+<button onclick="downloadImage()">Baixar em PDF</button>
 
-<script>
-    async function downloadPDF() {
-        const { jsPDF } = window.jspdf;
-        // O restante da função para download do PDF deve ser implementado aqui
+
+      <script>
+        async function downloadImage() {
+        const content = document.getElementById('content');
+        const canvas = await html2canvas(content, {
+            backgroundColor: null, // Define o fundo como transparente
+            scale: 9 // Aumenta a escala para maior resolução
+        });
+        const imgData = canvas.toDataURL('image/png');
+
+        // Cria um link para download
+        const link = document.createElement('a');
+        link.href = imgData;
+        link.download = 'documento.png';
+        link.click();
     }
 </script>
+    
+
 
 </body>
 </html>
