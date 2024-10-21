@@ -14,41 +14,55 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             height: 100vh;
             margin: 0;
             padding: 0;
         }
 
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
         .logo {
             width: 150px; /* Ajuste conforme necessário */
-            margin-bottom: 20px;
+            margin: 0 10px;
         }
 
         .title {
             color: #00bfff;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             font-weight: 500;
             font-size: 28px;
         }
 
         .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
+            display: flex; /* Flex para alinha Passo 1 e Passo 2 */
+            justify-content: center; /* Centraliza os itens */
+            align-items: flex-start; /* Alinha os itens no topo */
             padding: 20px;
+            margin-top: 250px; /* Espaço de 100px abaixo do título */
+        }
+
+        .steps-row {
+            display: flex; /* Passos 1 e 2 na horizontal */
+            align-items: center; /* Alinha os passos no centro */
+            margin-right: 50px; /* Espaço à direita para os produtos */
+            top: 100px;
         }
 
         .step {
             background-color: #1e1e1e;
             padding: 30px 20px;
-            margin: 0 20px;
+            margin: 0 10px; /* Ajusta a margem para que fiquem empilhados */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
-            width: 180px;
+            width: 450px; /* Aumentado para 450px para engordar os cards */
             transition: transform 0.3s ease;
         }
 
@@ -65,11 +79,43 @@
         }
 
         .arrow {
-            width: 0; 
-            height: 0; 
+        width: 0; 
+        height: 0; 
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-left: 25px solid #00bfff;
+        margin: 20px 10px;
+        top: -500px; /* Aumente o valor do topo para descer a seta */
+}
+
+
+        .products {
+            display: flex; /* Mantém os produtos na vertical */
+            flex-direction: column; /* Produtos empilhados em coluna */
+            align-items: center; /* Centraliza os produtos */
+            width: 500px; /* Aumentado para 500px para acompanhar os passos */
+        }
+
+        .product-step {
+            position: relative; /* Para posicionar as setas corretamente */
+            width: 480px; /* Aumentado para 480px para engordar os cards */
+            margin-bottom: -10px; /* Margem entre os passos dos produtos */
+            left: -60px;
+            display: flex; /* Para alinhar os produtos e seus cards adicionais */
+            justify-content: space-between; /* Espaço entre os produtos */
+            align-items: flex-start; /* Alinha os produtos no topo */
+        }
+
+        /* Setas específicas para cada produto */
+        .product-arrow {
+            width: 0;
+            height: 0;
             border-top: 15px solid transparent;
             border-bottom: 15px solid transparent;
             border-left: 25px solid #00bfff;
+            position: absolute; /* Posiciona a seta em relação ao produto */
+            left: 95px; /* Centraliza a seta em relação ao produto */
+            top: 50px; /* Espaço acima do produto */
         }
 
         button {
@@ -90,48 +136,338 @@
 </head>
 <body>
 
-<img src="logo_h_branco.jpeg" alt="Logo do Sistema" class="logo">
-<h2 class="title">Fluxograma de Instalação</h2>
+<div class="logo-container">
+    <img src="logo_h_branco.jpeg" alt="Logo do Sistema" class="logo">
+    <img src="audit.png" alt="Logo Download" class="logo">
+    <img src="auditacard.png" alt="Logo Auditacard" class="logo">
+</div>
+<h2 class="title">Guia de Trabalho</h2>
 
 <div class="container" id="content">
-    <div class="step">
-        <strong>Passo 1</strong>
-        Baixe o instalador do site oficial.
+    <div class="steps-row">
+        <div class="step" style="position: relative; top: 500px;">
+            <strong>Passo 1:</strong>
+            <strong>Criar Grupo para Comunicação</strong>
+            Cliente X Audit com Nicholas, Pedro, Implantação e Responsáveis de cada produto contratado.
+        </div>
+
+        <div class="arrow"></div>
+
+        <div class="step" style="position: relative; top: 500px;">
+            <strong>Passo 2:</strong>
+            <strong>Envio de Material de Boas Vindas</strong>
+            Vídeo de Apresentação Audit Tecnologia pelo Conselheiro, Vídeo de Apresentação de Cada Produto Contratado Pelos Seus Protagonistas e Vídeo de Apresentação dos Canais de Suporte Técnico e Financeiro Pelo Responsável de Qualidade.
+        </div>
+
+        <div class="arrow"></div> <!-- Seta entre Passo 2 e Produto 2 -->
     </div>
 
-    <div class="arrow"></div>
+    <div class="products">
+        <div class="product-step">
+            <div class="step" style="position: relative; top: -150px;"> <!-- Subindo Produto 1 -->
+                <strong>PJ360</strong>
+                <strong>Envio do Descritivo dos Requisitos Técnicos</strong>
+                Enviar no grupo do whatsapp os requisitos técnicos necessários para instalação.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -150px;"> <!-- Adicionando Produto 1 Adicional -->
+                <strong>Envio do Link de cadastro</strong>  
+                É encaminhado link de cadastro para o whatsapp do cliente para registro automático - Função a ser criada.
+                <strong>Responsável: Implantação</strong> 
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -150px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Envio de Material Técnico</strong>
+                Envio de material sucinto sobre os principais passos do sistema.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -150px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Agendamento de Treitamento</strong>
+                Realizar agendamento de treinamento completo sobre o sistema.
+                <strong>Responsável: Protagonista</strong>
+                
+            </div>
+            
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -150px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Treinamento</strong>
+                Realizar Treinamento com o Cliente, entender suas necessidades e buscar resolver casos reais para um aprendizado completo, caso necessário agendar novas conversas.
+                <strong>Responsável: Protagonista</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -150px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Atendimento de Suporte Contínuo</strong>
+                Alta disponibilidade de atendimento para solução de problemas técnicos.
+                <strong>Responsável: Protagonista</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -150px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Atendimento Contínuo</strong>
+                Contato contínuo com o cliente, envio de materiais de novas funcionalidades e pequenos tutoriais. Verificar possíveis dificuldades do cliente e buscar o setor responsável para efetuar os ajustes prezando pelo cliente ao centro.
+                <strong>Responsável: Qualidade</strong>
+                
+            </div>
+        </div>
 
-    <div class="step">
-        <strong>Passo 2</strong>
-        Execute o arquivo de instalação.
-    </div>
+        <div class="product-step">
+            <div class="step" style="position: relative; top: -100px;"> <!-- Subindo Produto 2 -->
+                <strong>Audit Tax:</strong>
+                <strong>Envio do Descritivo dos Requisitos Técnicos</strong>
+                Enviar no grupo do whatsapp os requisitos técnicos necessários para instalação.
+                <strong>Responsável: Implantação</strong>
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 2 Adicional -->
+                <strong>Agendamento da Implantação</strong>
+                Enviado ao cliente opções de agenda para realizar a instalação e solicitado código de acesso Anydesk.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Fazer conexão na máquina do cliente via Anydesk
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Instalar O SQL Server Enterprise 2008 e Habilitar porta 1433 na configuração do SQL e Firewall.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Instalar o SQL Native CLiente.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Criar usuário default onde será utilizado para fazer a conexão com o banco.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Restaurar bases de sistema e base padrão de cliente para primeiro acesso.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Colar no disco local c as dependências do sistema.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Configurar o Ini com o IP de conexão e parâmetros de licença.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Realizar o cadastro dos usuários do cliente.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Realizar o cadastro de empresa teste.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Vincular Usuário X Empresa.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Realizar testes massivos de importação e exportação de arquivos, explorando as principais funcionalidades e buscando resolver problemas eventuais.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Envio de Material Técnico</strong>
+                Envio de material sucinto sobre os principais passos do sistema.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -500x;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Agendamento de Treitamento</strong>
+                Realizar agendamento de treinamento completo sobre o sistema.
+                <strong>Responsável: Protagonista</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Treinamento</strong>
+                Realizar Treinamento com o Cliente, entender suas necessidades e buscar resolver casos reais para um aprendizado completo, caso necessário agendar novas conversas.
+                <strong>Responsável: Protagonista</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -500x;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Atendimento de Suporte Contínuo</strong>
+                Alta disponibilidade de atendimento para solução de problemas técnicos.
+                <strong>Responsável: Protagonista</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -100px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Atendimento Contínuo</strong>
+                Contato contínuo com o cliente, envio de materiais de novas funcionalidades e pequenos tutoriais. Verificar possíveis dificuldades do cliente e buscar o setor responsável para efetuar os ajustes prezando pelo cliente ao centro.
+                <strong>Responsável: Qualidade</strong>
+                
+            </div>
+        </div>
 
-    <div class="arrow"></div>
-
-    <div class="step">
-        <strong>Passo 3</strong>
-        Siga as instruções do assistente de instalação.
-    </div>
-
-    <div class="arrow"></div>
-
-    <div class="step">
-        <strong>Passo 4</strong>
-        Aceite os termos e condições.
-    </div>
-
-    <div class="arrow"></div>
-
-    <div class="step">
-        <strong>Passo 5</strong>
-        Escolha o diretório de instalação.
-    </div>
-
-    <div class="arrow"></div>
-
-    <div class="step">
-        <strong>Passo 6</strong>
-        Conclua a instalação e reinicie o programa.
+        <div class="product-step">
+            <div class="step" style="position: relative; top: -50px;">
+                <strong>Auditacard</strong>
+                <strong>Envio do Descritivo dos Requisitos Técnicos</strong>
+                Enviar no grupo do whatsapp os requisitos técnicos necessários para instalação.
+                <strong>Responsável: Implantação</strong>
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Agendamento da Implantação</strong>
+                Envio ao cliente opções de agenda para realizar a instalação.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Fazer conexão na máquina do cliente via Anydesk
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Instalar O SQL Server Express 2022 e Habilitar porta 1433 na configuração do SQL e Firewall.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Instalar o SQL Native CLiente.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Criar usuário default onde será utilizado para fazer a conexão com o banco.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+           
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Colar no disco local c as dependências do sistema.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Configurar o Ini com o IP de conexão e parâmetros de licença.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Realizar o cadastro dos usuários do cliente.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Realizar o cadastro de empresa teste.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Vincular Usuário X Empresa.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Implantação</strong>
+                Realizar testes massivos de importação e exportação de arquivos, explorando as principais funcionalidades e buscando resolver problemas eventuais.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Envio de Material Técnico</strong>
+                Envio de material sucinto sobre os principais passos do sistema.
+                <strong>Responsável: Implantação</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Agendamento de Treitamento</strong>
+                Realizar agendamento de treinamento completo sobre o sistema.
+                <strong>Responsável: Protagonista</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Realizar Treinamento</strong>
+                Realizar Treinamento com o Cliente, entender suas necessidades e buscar resolver casos reais para um aprendizado completo, caso necessário agendar novas conversas.
+                <strong>Responsável: Protagonista</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Atendimento de Suporte Contínuo</strong>
+                Alta disponibilidade de atendimento para solução de problemas técnicos.
+                <strong>Responsável: Protagonista</strong>
+                
+            </div>
+            <div class="arrow"></div>
+            <div class="step" style="position: relative; top: -50px;"> <!-- Adicionando Produto 3 Adicional -->
+                <strong>Atendimento Contínuo</strong>
+                Contato contínuo com o cliente, envio de materiais de novas funcionalidades e pequenos tutoriais. Verificar possíveis dificuldades do cliente e buscar o setor responsável para efetuar os ajustes prezando pelo cliente ao centro.
+                <strong>Responsável: Qualidade</strong>
+                
+            </div>
+           
+            
+        </div>
     </div>
 </div>
 
@@ -141,51 +477,7 @@
 <script>
     async function downloadPDF() {
         const { jsPDF } = window.jspdf;
-
-        try {
-            const doc = new jsPDF('landscape');
-            const content = document.getElementById("content");
-
-            // Adiciona fundo preto
-            doc.setFillColor(18, 18, 18);
-            doc.rect(0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height, 'F');
-
-            // Carregar a imagem do logo
-            const logo = new Image();
-            logo.src = 'logo_h_branco.jpeg'; // Mudança para .jpeg
-            logo.onload = async function () {
-                // Captura o conteúdo usando html2canvas
-                const canvas = await html2canvas(content, {
-                    backgroundColor: null // Mantém o fundo transparente
-                });
-
-                if (!canvas) {
-                    throw new Error("Erro ao capturar o conteúdo.");
-                }
-
-                const imgData = canvas.toDataURL('image/png');
-                const imgWidth = doc.internal.pageSize.width - 20; // Largura do conteúdo
-                const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-                // Adiciona o conteúdo do canvas
-                doc.addImage(imgData, 'PNG', 10, 60, imgWidth, imgHeight);
-                doc.addImage(logo.src, 'JPEG', 10, 10, 150, 40); // Logo na parte superior
-                
-                // Adiciona o título com a cor correta
-                doc.setTextColor(0, 191, 255); // Código RGB para #00bfff
-                doc.text("Fluxograma de Instalação", 105, 50, { align: "center" });
-
-                // Salvar o PDF
-                doc.save("fluxograma_instalacao.pdf");
-            };
-
-            logo.onerror = function () {
-                alert("Erro ao carregar a imagem do logo. Verifique o arquivo.");
-            };
-        } catch (error) {
-            console.error(error);
-            alert("Ocorreu um erro ao tentar baixar o PDF. Verifique o console para mais detalhes.");
-        }
+        // O restante da função para download do PDF deve ser implementado aqui
     }
 </script>
 
